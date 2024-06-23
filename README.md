@@ -1,7 +1,7 @@
 # Install arch 
 
 ## Install from live device
-- Additaional packages: `vim git linux-headers glib2-devel base-devel unzip fastfetch`
+- Additaional packages: `vim git linux-headers glib2-devel base-devel unzip fastfetch bc`
 - Reboot
 - Make sure system is latest: `sudo pacman -Syu`
 
@@ -145,6 +145,10 @@
 
 ## Remove some default gnome apps
 - TBD
+ 
+## Gnome weather
+- Download and use https://gitlab.com/julianfairfax/scripts/-/blob/main/add-location-to-gnome-weather.sh
+- `bc` needs to be installed
 
 ## Install terminal and configure it
 - `sudo pacman -S alacritty`
