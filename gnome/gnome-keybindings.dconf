@@ -1,0 +1,15 @@
+[/]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+home=['<Super>e']
+logout=@as []
+shutdown=['<Control><Alt>Delete']
+
+[custom-keybindings/custom0]
+binding='<Super>Return'
+command='kgx'
+name='Console'
+
+[custom-keybindings/custom1]
+binding='<Shift><Control>Escape'
+command='flatpak run io.missioncenter.MissionCenter'
+name='MissionCenter'

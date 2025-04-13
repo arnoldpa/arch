@@ -110,7 +110,7 @@
   __GLX_VENDOR_LIBRARY_NAME=nvidia
   ```  
 - Single start: `sudo systemctl start gdm.service`
-- Check Wayland: `loginctl show-session `loginctl|grep <YOUR_USER_NAME>|awk '{print $1}'` -p Type`
+- Check Wayland: ```loginctl show-session `loginctl|grep <YOUR_USER_NAME>|awk '{print $1}'` -p Type```
 - Enable autostart: `sudo systemctl enable gdm.service`
 
 ## YAY
@@ -142,6 +142,9 @@
 
 ## Chromium
 - `sudo pacman -S chromium`
+- Theme: https://chromewebstore.google.com/detail/catppuccin-chrome-theme-m/cmpdlhmnmjhihmcfnigoememnffkimlk
+- Extensions: 
+  - https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh
 
 ## Remove some default gnome apps
 - TBD
