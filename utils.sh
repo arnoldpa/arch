@@ -29,6 +29,24 @@ install_packages() {
   fi
 } 
 
+install_packages_pacman() {
+  local packages=("$@")
+  local to_install=()
+
+  for pkg in "${packages[@]}"; do
+    if ! is_installed "$pkg" && ! is_group_installed "$pkg"; then
+      to_install+=("$pkg")
+    else
+      echo "Not installing ${pkg}, because already installed."
+    fi
+  done
+
+  if [ ${#to_install[@]} -ne 0 ]; then
+    echo "Installing: ${to_install[*]}"
+    sudo pacman -S --noconfirm "${to_install[@]}"
+  fi
+} 
+
 uninstall_packages() {
   local packages=("$@")
   local to_uninstall=()

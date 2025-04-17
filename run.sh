@@ -20,8 +20,14 @@ source packages.conf
 
 echo "Starting system setup..."
 
-# TODO Configure pacman?
-# Color and parallel downloads
+echo "Configure pacman..."
+PACMAN_CONF="/etc/pacman.conf"
+if grep -q "^#Color" "$PACMAN_CONF"; then
+    sudo sed -i "s/^#Color/Color/" "$PACMAN_CONF"
+fi
+if grep -q "^ParallelDownloads = 5" "$PACMAN_CONF"; then
+    sudo sed -i "s/^ParallelDownloads = 5/ParallelDownloads = 20/" "$PACMAN_CONF"
+fi
 
 echo "Updating system..."
 sudo pacman -Syu --noconfirm
@@ -71,7 +77,7 @@ echo "Installing system maintenance tools..."
 install_packages "${MAINTENANCE[@]}"
 
 echo "Installing desktop environment..."
-install_packages "${DESKTOP[@]}"
+install_packages_pacman "${DESKTOP[@]}"
 
 echo "Installing media packages..."
 install_packages "${MEDIA[@]}"
@@ -100,7 +106,7 @@ echo "Configuring Gnome..."
 echo "Installing flatpaks..."
 . install-flatpaks.sh
 
-# Remove unneeded dependencies
+echo "Remove unneeded dependencies..."
 yay -Yc --noconfirm
 
 echo "Setup complete! You may want to reboot your system."
